@@ -9,7 +9,7 @@ type GreetingContainerPropsType = {
 
 export const pureAddUser = (name: string, setError: (error: string) => void, setName: (name:string)=>void, addUserCallback: (name: string) => void) => {
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
-    if (name) {
+    if (name && name.trim()!=='') {
         addUserCallback(name)
         setName('')
     } else {
@@ -18,7 +18,7 @@ export const pureAddUser = (name: string, setError: (error: string) => void, set
 }
 
 export const pureOnBlur = (name: string, setError: (error: string) => void) => { // если имя пустое - показать ошибку
-    !name ? setError('Ошибка! Введите имя!') : setError('')
+    name && name.trim()!=='' ? setError('') : setError('Ошибка! Введите имя!')
 }
 
 export const pureOnEnter = (e: KeyboardEvent<HTMLInputElement>, addUser: () => void) => { // если нажата кнопка Enter - добавить
@@ -36,14 +36,16 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     const [error, setError] = useState<string>('')
 
     const setNameCallback = (e: ChangeEvent<HTMLInputElement>) => {
-        const trimmedValue = e.currentTarget.value.trim()
-        if (trimmedValue) {
-            setName(trimmedValue)
-            error && setError('')
-        } else {
-            name && setName('')
-            setError('Ошибка! Введите имя!')
-        }
+        // const trimmedValue = e.currentTarget.value.trim()
+        // if (trimmedValue) {
+        //     setName(trimmedValue)
+        //     error && setError('')
+        // } else {
+        //     name && setName('')
+        //     setError('Ошибка! Введите имя!')
+        // }
+        setName(e.currentTarget.value)
+        error && setError('')
     }
 
     const addUser = () => {
@@ -59,7 +61,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
     }
 
     const totalUsers = users.length
-    const lastUserName = name
+    const lastUserName = users.length > 0 ? users[users.length-1].name : ''
 
     return (
         <Greeting

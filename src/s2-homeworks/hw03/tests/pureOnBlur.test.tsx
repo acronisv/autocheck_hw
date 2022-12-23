@@ -22,8 +22,8 @@ test('name 2', () => {
     pureOnBlur(name, setError)
     expect(error).toBe('Ошибка! Введите имя!')
 })
-// test('name 3', () => {
-//     name = '    '
-//     pureOnBlur(name, setError)
-//     expect(error).toBe('Ошибка! Введите имя!')
-// })
+test('name 3', () => {
+    name = '    '
+    pureOnBlur(name, setError)
+    expect(error).toBe('Ошибка! Введите имя!')
+})
