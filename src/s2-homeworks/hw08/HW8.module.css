@@ -1,23 +1,50 @@
 .item {
+    text-align: center;
+    height: 47px;
+    border-bottom: 1px solid #E5E5E5;
 }
 
-.item:last-of-type {
+.item:last-of-type  {
+    border-bottom: none;
+}
+
+.item td:last-of-type {
+    font-weight: 600;
 }
 
 .users {
+    border-collapse: collapse;
+    width: 100%;
 }
 
 .buttonsContainer {
+
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 18px;
+}
+
+.buttonsContainer button {
+    margin-left: 12px;
 }
 
 .container {
+    width: 606px;
 }
 
 .thead {
+    background: #E5E5E5;
+    height: 36px;
+    font-weight: 600;
 }
 
 .nameCol {
+    width: 33%;
+    padding-left: 17px;
+    text-align: left;
 }
 
 .ageCol {
+    text-align: center;
+
 }
