@@ -19,5 +19,11 @@ html {
 }
 
 .select {
+    background-color: var(--background);
+    color: var(--color);
+}
 
+.theme_text {
+    font-size: 14px;
+    margin-bottom: 6px;
 }
