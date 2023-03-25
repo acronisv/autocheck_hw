@@ -1,22 +1,47 @@
 .buttonsContainer {
+    margin-bottom: 50px;
+}
+.buttonsContainer button {
+    margin-right: 24px;
+    margin-bottom: 10px;
 }
 
 .responseContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-grow: 1;
 }
 
 .imageContainer {
+    display: flex;
+    flex-basis: 50%;
 }
 
 .image {
+    margin-right: 45px;
+    margin-left: auto;
 }
 
 .textContainer{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+    margin-left: 45px;
+    min-width: 300px;
 }
 
 .code {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 37px;
+    margin-bottom: 12px;
 }
 
 .text {
+    line-height: 20px;
 }
 .info {
+    line-height: 20px;
 }
