@@ -1,8 +1,8 @@
 import React from 'react'
-
 import downIcon from '../../assets/sort-down.png'
 import upIcon  from '../../assets/sort-up.png'
 import noneIcon from '../../assets/sort.png'
+import s from '../../HW15.module.css'
 
 export type SuperSortPropsType = {
     id?: string
@@ -46,6 +46,7 @@ const SuperSort: React.FC<SuperSortPropsType> = (
         <span
             id={id + '-sort-' + value}
             onClick={onChangeCallback}
+            className={s.sortIcon}
         >
             <img alt='sort'
                 id={id + '-icon-' + sort}

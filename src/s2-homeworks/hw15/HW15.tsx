@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import loadingIcon from './assets/loading.gif'
 
 /*
 * 1 - дописать SuperPagination
@@ -73,10 +74,6 @@ const HW15 = () => {
         //setPage(1) // при сортировке сбрасывать на 1 страницу
         sendQuery({sort: newSort, page, count})
         setSearchParams()
-        //sendQuery()
-        // setSearchParams(
-
-        //
     }
 
     useEffect(() => {
@@ -103,7 +100,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {idLoading && <div id={'hw15-loading'} className={s.loading}><img src={loadingIcon} alt="Loading"/></div>}
 
                 <SuperPagination
                     page={page}
