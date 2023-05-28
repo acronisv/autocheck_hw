@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {ChangeEvent} from 'react'
 import SuperSelect from '../../../hw07/common/c5-SuperSelect/SuperSelect'
 import {Pagination} from '@mui/material'
 import s from './SuperPagination.module.css'
@@ -16,14 +16,16 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
 
-    const onChangeCallback = (event: any, page: number) => {
-        // пишет студент
+    const lastPage = Math.ceil(totalCount/itemsCountForPage)
+
+    const onChangeCallback = (event: ChangeEvent<any>, page: number) => {
+        onChange(page, event.currentTarget.value? +event.currentTarget.value : itemsCountForPage)
     }
 
-    const onChangeSelect = (event: any) => {
-        // пишет студент
+    const onChangeSelect = (event: ChangeEvent<HTMLSelectElement> ) => {
+        console.log('event:',event, 'page:', page)
+        onChangeCallback(event, page)
     }
 
     return (
@@ -31,8 +33,10 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             <Pagination
                 id={id + '-pagination'}
                 sx={{
-                    // стили для Pagination // пишет студент
+                    "margin-right":"30px"
                 }}
+                shape="rounded"
+                color="primary"
                 page={page}
                 count={lastPage}
                 onChange={onChangeCallback}
@@ -41,7 +45,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             />
 
             <span className={s.text1}>
-                показать
+                Показать
             </span>
 
             <SuperSelect
@@ -52,11 +56,12 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
                     {id: 7, value: 7},
                     {id: 10, value: 10},
                 ]}
+                className={s.superSelect}
                 onChange={onChangeSelect}
             />
 
             <span className={s.text2}>
-                строк в таблице
+                Строк в таблице
             </span>
         </div>
     )

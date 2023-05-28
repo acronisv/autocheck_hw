@@ -8,18 +8,29 @@
 
 .techHeader {
     width: 50vw;
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .developerHeader {
-
+    font-size: 14px;
+    font-weight: 600;
 }
 
 .row {
     display: flex;
+    padding: 11px 17px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.row:last-of-type {
+    border-bottom: none;
 }
 
 .rowHeader {
     display: flex;
+    background: #E5E5E5;
+    padding: 11px 17px 9px 17px;
 }
 
 .loading {
